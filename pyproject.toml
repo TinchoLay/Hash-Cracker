@@ -1,0 +1,26 @@
+[project]
+name = "hashcrack"
+version = "0.1.0"
+description = "Cracker de hashes por diccionario y multiprocessing — hermano del proyecto hashid, se apoya en su motor de identificación para detectar el algoritmo antes de atacar."
+requires-python = ">=3.11"
+dependencies = [
+    "hashid",
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.scripts]
+hashcrack = "hashcrack.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[tool.uv.sources]
+hashid = { git = "https://github.com/TinchoLay/Hash-Identifier.git" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
